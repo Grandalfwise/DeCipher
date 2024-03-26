@@ -1,21 +1,22 @@
 import time
 
 def tutorial():
-    begin = input("Welcome teachers. This code has been made to help you decrypt some encrypted messages made by students."
-                  "\n"
-                  "If you would like a tutorial type 'y'."
-                  "\n"
-                  "If you would like to skip the tutorial type 'n'."
-                  "\n"
-                  "If you would like to exit, type ' '"
-                  "Please note that everything is case sensitive.\n"
-                  "Enter your answer here: ")
+    print("Welcome teachers. This code has been made to help you decrypt some encrypted messages made by students.")
+    time.sleep(0.5)
+    print("If you would like a tutorial type 'y'.\n"
+            "If you would like to skip the tutorial type 'n'.\n"
+            "If you would like to exit, type ' '\n"
+            "Please note that everything is case sensitive.\n")
+    time.sleep(0.5)
+    begin = input("Enter your answer here: ")
+
     if begin == "y":
-        time.sleep(2)
+        time.sleep(1)
         tutorial_start = "This is the tutorial"
         tutorial_start.title().upper()
         print(tutorial_start)
-        time.sleep(1)
+        time.sleep(0.5)
+
         print("To use this cipher you must input the students name, and the type of cipher used. As well as the encrypted message."
               "\n"
               "It is important to follow all the instructions correctly or it will not work."
@@ -27,17 +28,18 @@ def tutorial():
         start()
     elif begin == "n":
         print("Starting...")
-        time.sleep(2)
+        time.sleep(1)
         start()
     elif begin == " ":
         print("Stopping...")
-        time.sleep(2)
+        time.sleep(1)
         print("Stopped")
         exit()
     else:
         print("Invalid answer."
               "Starting again.")
-        time.sleep(2)
+        time.sleep(1)
+        print("\n\n\n\n")
         tutorial()
 
 # The function is used at the start, it calls the questions function to ask questions and then asks which cipher you want to use
