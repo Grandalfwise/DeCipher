@@ -1,7 +1,60 @@
+import time
+
+def tutorial():
+    begin = input("Welcome teachers. This code has been made to help you decrypt some encrypted messages made by students."
+                  "\n"
+                  "If you would like a tutorial type 'y'."
+                  "\n"
+                  "If you would like to skip the tutorial type 'n'."
+                  "\n"
+                  "If you would like to exit, type ' '"
+                  "Please note that everything is case sensitive.\n"
+                  "Enter your answer here: ")
+    if begin == "y":
+        time.sleep(2)
+        tutorial_start = "This is the tutorial"
+        tutorial_start.title().upper()
+        print(tutorial_start)
+        time.sleep(1)
+        print("To use this cipher you must input the students name, and the type of cipher used. As well as the encrypted message."
+              "\n"
+              "It is important to follow all the instructions correctly or it will not work."
+              "\n"
+              "If the answer comes out incorrect it will mean that the cipher you chose is not the right one or you typed it in incorrectly."
+              "Remember everything you type is case sensitive."
+              "\n")
+        print("The tutorial has finished. Starting the code.\n")
+        start()
+    elif begin == "n":
+        print("Starting...")
+        time.sleep(2)
+        start()
+    elif begin == " ":
+        print("Stopping...")
+        time.sleep(2)
+        print("Stopped")
+        exit()
+    else:
+        print("Invalid answer."
+              "Starting again.")
+        time.sleep(2)
+        tutorial()
+
 # The function is used at the start, it calls the questions function to ask questions and then asks which cipher you want to use
 def start():
-    questions()
+    username = input("Please enter the name of the person: ")
+    time.sleep(1)
+
+    cyphers_to_be_used = f"\n Hi {username}, there are multiple ciphers you can use to decipher this"
+    cyphers_to_be_used.title()
+    print(cyphers_to_be_used)
+
+    ciphers = "Here are your choices: Reverse (r), Caesar (c), Morse Code (mc), Monoalphabetic (m), and Atbash (a).\n"
+    print(ciphers)
+    time.sleep(1)
+
     cipher_choice = input("Which Cipher would you like: ")
+
     if cipher_choice == "r":
         reverse()
     elif cipher_choice == "c":
@@ -16,21 +69,13 @@ def start():
         invalid = "Invalid Input"
         print(invalid)
 
-def questions():
-    username = input("Please enter the name of the person: ")
-    cyphers_to_be_used = f"\n Hi {username}, there are multiple ciphers you can use to decipher this"
-    cyphers_to_be_used = cyphers_to_be_used.title()
-    print(cyphers_to_be_used)
-    ciphers = "Here are your choices: Reverse (r), Caesar (c), Morse Code (mc), Monoalphabetic (m), and Atbash (a).\n"
-    print(ciphers)
-
-
 ####### CIPHERS #######
-
 
 def reverse():
     message = input("enter the encrypted message: ")
     reversed_string = message[::-1]  # Used to print the opposite
+    print("Encrypting...")
+    time.sleep(1)
     print(reversed_string)
 
 # += used to put the different characters into one string
@@ -38,6 +83,7 @@ def caesar():
     message = input("enter the encrypted message: ")
     result = ""
     s = 3
+
     for i in range(len(message)):
         char = message[i]
         if char.isupper():
@@ -46,6 +92,9 @@ def caesar():
             result += chr((ord(char) + s - 97) % 26 + 97)
         else:
             result += chr((ord(char)))
+
+    print("Encrypting...")
+    time.sleep(1)
     print(result)
 
 def morse():
@@ -55,6 +104,7 @@ def monoalphabetic():
     message = input("enter the encrypted message: ")
     result = ""
     s = 13
+
     for i in range(len(message)):
         char = message[i]
         if char.isupper():
@@ -63,7 +113,11 @@ def monoalphabetic():
             result += chr((ord(char) + s - 97) % 26 + 97)
         else:
             result += chr((ord(char)))
+
+    print("Encrypting...")
+    time.sleep(1)
     print(result)
+
 
 # Dictionary to replace the different letters.
 capital_atbash = {'A': 'Z', 'B': 'Y', 'C': 'X', 'D': 'W', 'E': 'V',
@@ -80,6 +134,7 @@ lower_atbash = {'a': 'z', 'b': 'y', 'c': 'x', 'd': 'w', 'e': 'v',
 def atbash():
     message = input("enter the encrypted message: ")
     cipher = ''
+
     for i in range(len(message)):
         char = message[i]
         # checks for space
@@ -94,6 +149,8 @@ def atbash():
         else:
             cipher += ' '
 
+    print("Encrypting...")
+    time.sleep(1)
     print(cipher)
 
-start()
+tutorial()
