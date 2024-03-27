@@ -17,13 +17,10 @@ def tutorial():
         print(tutorial_start)
         time.sleep(0.5)
 
-        print("To use this cipher you must input the students name, and the type of cipher used. As well as the encrypted message."
-              "\n"
-              "It is important to follow all the instructions correctly or it will not work."
-              "\n"
-              "If the answer comes out incorrect it will mean that the cipher you chose is not the right one or you typed it in incorrectly."
-              "Remember everything you type is case sensitive."
-              "\n")
+        print("To use this code you must input the student's name, and the type of cipher used. As well as the encrypted message."
+              "\nIt is important to follow all the instructions correctly or it will not work."
+              "\nIf the answer comes out incorrect it means that the cipher you chose is not the right one or you typed it in incorrectly."
+              "\nRemember, everything you type is case sensitive.\n")
         print("The tutorial has finished. Starting the code.\n")
         start()
     elif begin == "n":
@@ -47,11 +44,11 @@ def start():
     username = input("Please enter the name of the person: ")
     time.sleep(1)
 
-    cyphers_to_be_used = f"\n Hi {username}, there are multiple ciphers you can use to decipher this"
+    cyphers_to_be_used = f"\nHi {username}, there are multiple ciphers you can use to decipher your encrypted message."
     cyphers_to_be_used.title()
     print(cyphers_to_be_used)
 
-    ciphers = "Here are your choices: Reverse (r), Caesar (c), Morse Code (mc), Monoalphabetic (m), and Atbash (a).\n"
+    ciphers = "Here are your choices: Reverse (r), Caesar (c), Monoalphabetic (m), and Atbash (a).\n"
     print(ciphers)
     time.sleep(1)
 
@@ -61,8 +58,6 @@ def start():
         reverse()
     elif cipher_choice == "c":
         caesar()
-    elif cipher_choice == "mc":
-        morse()
     elif cipher_choice == "m":
         monoalphabetic()
     elif cipher_choice == "a":
@@ -71,7 +66,7 @@ def start():
         invalid = "Invalid Input"
         print(invalid)
 
-    use_again = input("Would you like to use this again?\n Type y if you would, and n if you don't want to.")
+    use_again = input("Would you like to use this again?\n Type y if you would, and n if you don't want to: ")
     if use_again == "y":
         start()
     else:
@@ -104,9 +99,6 @@ def caesar():
     print("Encrypting...")
     time.sleep(1)
     print(result)
-
-def morse():
-    print("Invalid. This has not been finished.")
 
 def monoalphabetic():
     message = input("enter the encrypted message: ")
