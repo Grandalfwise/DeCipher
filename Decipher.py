@@ -71,6 +71,12 @@ def start():
         invalid = "Invalid Input"
         print(invalid)
 
+    use_again = input("Would you like to use this again?\n Type y if you would, and n if you don't want to.")
+    if use_again == "y":
+        start()
+    else:
+        exit()
+
 ####### CIPHERS #######
 
 def reverse():
